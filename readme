@@ -1,0 +1,27 @@
+This project is aim to help me be more lazier with my music choice and prepare for the great DMCA
+
+How it will work:
+    A youtube video or playlist will be inserted into the cmd and it will be downloaded base on the 
+    user preferences. After download, a CSV file will contain all the playlist/video important info
+    such as Title, thumbnail, id , url ...etc 
+    
+    *Features
+        - Script will download an mp3 version of the video ✔
+        - Script will download an mp3 version of the playlist ✔
+        - Script will download an mp3 version of a selected number in the playlist 
+        - Script will list out all the name of the downloaded song 
+        - Script will get the title and URL of the video and append them into a text file 
+        - Script will get the title and URL of the playlist videos and append them into a text file  
+        - Script will help user delete Deleted video
+        - Script will store playlist title in a text file for safe keeping 
+        - Script will download the latest videos based on previous latest downloaded video index
+          So everytime i need to update my library i can just run the script to get the latest 
+
+INSTALLATION:
+    - pip install youtube-dl
+    - ffmpeg ( URL : https://www.gyan.dev/ffmpeg/builds/)
+
+
+YOUTUBE-DL OPTIONS DOCUMENT: 
+    - https://github.com/ytdl-org/youtube-dl/blob/3e4cedf9e8cd3157df2457df7274d0c842421945/youtube_dl/YoutubeDL.py#L137-L312
+    
