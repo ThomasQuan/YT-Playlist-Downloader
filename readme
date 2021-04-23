@@ -8,7 +8,7 @@ How it will work:
     *Features
         - Script will download an mp3 version of the video ✔
         - Script will download an mp3 version of the playlist ✔
-        - Script will download an mp3 version of a selected number in the playlist 
+        - Script will download an mp3 version of a selected number in the playlist  ✔
         - Script will list out all the name of the downloaded song 
         - Script will get the title and URL of the video and append them into a text file 
         - Script will get the title and URL of the playlist videos and append them into a text file  

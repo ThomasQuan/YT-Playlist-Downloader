@@ -2,35 +2,45 @@ from __future__ import unicode_literals
 from func import youtube_download_interface
 import sys
 import os
+import re
 
 clear = lambda: os.system("clear")
 try:
     option = sys.argv[1]
     if option.lower() == "download":
         url = sys.argv[2]
-        formatType = url[(url.rfind("/") + 1) : (url.rfind("?"))]
-        if formatType == "watch":
-            youtube_download_interface(url, formatType)
-        elif formatType == "playlist":
-            pl_cmd = sys.argv[3]
+        # formatType = url[(url.rfind("/") + 1) : (url.rfind("?"))]
+        try:
+            setting = sys.argv[3]
+
             while True:
-                if pl_cmd == "all":
-                    print("download all")
-                    youtube_download_interface(url, formatType, pl_cmd)
+                if (
+                    setting.startswith("[")
+                    and setting.endswith("]")
+                    and setting.count(":") == 1
+                    and re.match(r"^[1-9:[\]]+$", setting)
+                ):
+                    youtube_download_interface(url, setting)
                     break
-                elif pl_cmd == "portion":
-                    print("download only a few section of the playlist")
-                    youtube_download_interface(url, formatType, pl_cmd)
-                    break
-                elif pl_cmd == "select":
-                    print("download only a selected few based on index ")
-                    youtube_download_interface(url, formatType, pl_cmd)
+                elif (
+                    setting.startswith("[")
+                    and setting.endswith("]")
+                    and re.match(r"^[1-9,[\]]+$", setting)
+                ):
+                    youtube_download_interface(url, setting)
                     break
                 else:
-                    pl_cmd = input("Wrong playlist cmd \n")
+                    setting = input("Wrong playlist cmd \n")
                     continue
-        else:
-            print("Wrong format")
+
+        except IndexError:
+            youtube_download_interface(url, None)
+        # if formatType == "watch":
+        # elif formatType == "playlist":
+        #     pl_cmd = sys.argv[3]
+
+        # else:
+        #     print("Wrong format")
     elif sys.argv[1] == "list":
         print("list all downloaded title and url with thumbnail url")
     elif sys.argv[1] == "clear":
@@ -50,7 +60,8 @@ try:
             """ --- Command options --- 
         download url_link?
         list 
-        clear url_link? """)
+        clear url_link? """
+        )
 except IndexError:
     clear()
     print(
