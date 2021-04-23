@@ -46,7 +46,11 @@ try:
                 )
                 continue
     else:
-        print("Invalid command")
+        print(
+            """ --- Command options --- 
+        download url_link?
+        list 
+        clear url_link? """)
 except IndexError:
     clear()
     print(
