@@ -9,13 +9,15 @@ How it will work:
         - Script will download an mp3 version of the video ✔
         - Script will download an mp3 version of the playlist ✔
         - Script will download an mp3 version of a selected number in the playlist  ✔
-        - Script will list out all the name of the downloaded song 
-        - Script will get the title and URL of the video and append them into a text file 
-        - Script will get the title and URL of the playlist videos and append them into a text file  
-        - Script will help user delete Deleted video
-        - Script will store playlist title in a text file for safe keeping 
-        - Script will download the latest videos based on previous latest downloaded video index
-          So everytime i need to update my library i can just run the script to get the latest 
+        - Script will get the title and URL of the video and append them into a text file ✔
+        - Script will get the title, URL, thumbnail of the playlist videos and append them into a text file ✔ 
+        - Script will help user delete Deleted video(will work on it last)
+        - Script will download the latest videos based on previous latest downloaded video index ✔
+          So everytime i need to update my library i can just run the script to get the latest
+          Ex: new playlist on Youtube have 703 video and our database one have 700
+                so we substract that 703-700 = 3 new entries found base on the latest
+                    we use that to set the playlistend = 3 and playliststart to 1 
+        - More function to think of later on...
 
 INSTALLATION:
     - pip install youtube-dl
