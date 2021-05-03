@@ -15,14 +15,12 @@ def check_if_video(url):
         return False
 
 
-
 try:
-
     option = sys.argv[1]
     if option.lower() == "download":
         url = sys.argv[2]
-        check_url = "https://www.youtube.com/oembed?format=json&url="+url
-        if(requests.get(check_url).status_code == 200):
+        check_url = "https://www.youtube.com/oembed?format=json&url=" + url
+        if requests.get(check_url).status_code == 200:
             try:
                 setting = sys.argv[3]
                 while True:
@@ -50,12 +48,31 @@ try:
 
             except IndexError:
                 result = check_if_video(url)
-                if(result):
+                if result:
                     youtube_download_interface(url, "mp3")
                 else:
                     youtube_download_interface(url, "playlist")
         else:
-            print("Valid Youtube video is require")  
+            print("Valid Youtube video is require")
+    elif option.lower() == "restore":
+        csv_file = sys.argv[2]
+
+        warn = input(
+            "WARNING : This will download the entire video listed in "
+            + csv_file
+            + "\n Please place # on video you don't like to restore \n Continue? [y/n]"
+        )
+        while True:
+            if warn.lower() == "y":
+                youtube_download_interface(None, csv_file, None)
+                break
+            else:
+                warn = input(
+                    "WARNING : This will download the entire video listed in "
+                    + csv_file
+                    + "\n Please place # on video you don't like to restore \n Continue? [y/n]"
+                )
+                continue
     else:
         print(
             """ --- Command options --- 
@@ -65,8 +82,9 @@ try:
 except IndexError:
     print(
         """   --- Wrong format ---
-    Download a single video command: download url_link 
-    Download a playlist command: download url_link [portion?, select?] """
+    Download a single video command: python run.py download url_link 
+    Download a playlist command: python run.py download url_link [portion?, select?]
+    Restore a playlist or music history: python run.py restore playlist.csv """
     )
 
 # youtube_download_interface("https://www.youtube.com/watch?v=wMzUIZpAIYI")

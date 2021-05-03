@@ -1,4 +1,12 @@
-This project is aim to help me be more lazier with my music choice and prepare for the great DMCA
+This project basically is my approach to how I want to manage my Youtube music playlist and thumbnail,
+because of how popular and mainstream of listening to Youtube while coding or anything at all.
+Most of these command can be found on YT-dl, but I like to learn a bit from them and try myself out with 
+YT-dl Python because there isn't seem to be a lot of instruction out there for Python.
+
+COMMAND:
+    Download full : python run.py download video/playlist 
+    Download portion or section : python run.py download playlist [1:5] | [1,2,5,7]
+    Restore playlist or download history: python run.py restore playlist.csv
 
 How it will work:
     A youtube video or playlist will be inserted into the cmd and it will be downloaded base on the 
@@ -11,13 +19,12 @@ How it will work:
         - Script will download an mp3 version of a selected number in the playlist  ✔
         - Script will get the title and URL of the video and append them into a text file ✔
         - Script will get the title, URL, thumbnail of the playlist videos and append them into a text file ✔ 
-        - Script will help user delete Deleted video(will work on it last)
+        - Script will help user delete Deleted video (will figure it out later on)
         - Script will download the latest videos based on previous latest downloaded video index ✔
           So everytime i need to update my library i can just run the script to get the latest
           Ex: new playlist on Youtube have 703 video and our database one have 700
                 so we substract that 703-700 = 3 new entries found base on the latest
                     we use that to set the playlistend = 3 and playliststart to 1 
-        - More function to think of later on...
 
 INSTALLATION:
     - pip install youtube-dl
